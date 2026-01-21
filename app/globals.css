@@ -1,26 +1,177 @@
 @import "tailwindcss";
 
+/* * {
+    outline: 1px solid red;
+} */
+
+/* body {
+    cursor: none !important;
+} */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --anim-duration: 5;
+    --anim-speed: 0.65;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+button {
+    outline: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Hide scrollbar for Chrome, Safari, Edge */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.scrollbar-hide {
+    scrollbar-width: none;
+}
+.polygon {
+    clip-path: polygon(100% 0, 100% 85%, 10% 85%, 0 100%, 0 0);
+}
+
+.thin-cleaning-icon svg {
+    stroke: currentColor;
+    fill: none; /* removes thick fill */
+    stroke-width: 1; /* make it thinner */
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(87%) sepia(14%) saturate(512%) hue-rotate(33deg)
+        brightness(96%) contrast(90%);
+}
+
+.slider {
+    -webkit-appearance: none;
+    height: 8px;
+    background: linear-gradient(90deg, #3b82f6, #a855f7);
+    border-radius: 12px;
+}
+
+.slider::-webkit-slider-thumb {
+    height: 20px;
+    width: 20px;
+    background: #fff;
+    border: 3px solid red;
+    border-radius: 50%;
+}
+
+@theme {
+    --font-montserrat: "Montserrat", sans-serif;
+    --font-spaceGrotesk: "Space Grotesk", sans-serif;
+    --font-raleway: "Raleway", sans-serif;
+    --font-inter: "Inter", sans-serif;
+    --font-elmSans: "Elm Sans", sans-serif;
+    --font-ibmPlexMono: "IBM Plex Mono", sans-serif;
+    /* --font-quicksand: "Quicksand", sans-serif; */
+
+    --color-brand-lime: #a6ce39;
+    --color-brand-light-lime: #d4eca1;
+    --color-brand-navy: #0c3559;
+    --color-brand-light-bg: #f8fafc;
+    --color-brand-neutral-light: #e5eaf0;
+    --color-brand-slate: #7a8a99;
+    --color-brand-midnight: #071c33;
+    /* Dark Shades */
+    --color-brand-dark-lime: #7ca32c;
+    --color-brand-deep-navy: #072240;
+    --color-brand-charcoal: #0e1a28;
+    --color-brand-muted-slate: #4f5e6c;
+    --color-brand-dark-olive: #5c7120;
+}
+
+@layer components {
+    .custom-slider {
+        @apply h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-300;
+    }
+
+    /* Remove default browser thumb */
+    .custom-slider::-webkit-slider-thumb {
+        /* -webkit-appearance: none; */
+        appearance: none;
+        height: 40px;
+        width: 40px;
+        background-color: #072240; /* your color */
+        border-radius: 5px; /* fully round */
+        cursor: pointer;
+    }
+
+    /* Firefox */
+    .custom-slider::-moz-range-thumb {
+        height: 20px;
+        width: 20px;
+        background-color: #3b82f6;
+        border-radius: 9999px;
+        border: 3px solid white;
+        cursor: pointer;
+    }
+}
+
+.btn:before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    background-image: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0) 30%,
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0) 70%
+    );
+    top: 0;
+    left: -100px;
+    animation: shine 1.5s infinite linear; /* Animation */
+}
+
+@keyframes shine {
+    0% {
+        left: -100px;
+    }
+    20% {
+        left: 100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes slideFadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.animate-slideFadeUp {
+    animation: 0.5s slideFadeUp 1.2s ease forwards;
+}
+
+/* delay utility */
+.animation-delay-300 {
+    animation-delay: 1.5s;
+}
+
+.split-line {
+    display: block;
+    overflow: hidden;
 }
