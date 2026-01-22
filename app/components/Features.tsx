@@ -12,6 +12,7 @@ import { LuMonitorCog } from "react-icons/lu";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import Link from "next/link";
 
 const subtextContent = [
     "Deep Clean + 25 Point Health Check",
@@ -163,12 +164,15 @@ const Features = () => {
                         ))}
                     </div>
                     <div className="mx-auto mt-6 flex w-fit items-center gap-2 md:mt-7">
-                        <button
-                            onClick={() => scrollToSection("contact")}
-                            className="border-brand-lime bg-brand-lime text-brand-midnight font-spaceGrotesk cursor-pointer gap-2 rounded-md border px-5 py-2 text-sm font-medium"
+                        <Link
+                            href="#contact"
+                            className="border-brand-lime bg-brand-lime
+                            text-brand-midnight font-spaceGrotesk cursor-pointer
+                            gap-2 rounded-md border px-5 py-2 text-sm
+                            font-medium"
                         >
                             Book Solar MOT
-                        </button>
+                        </Link>
                         <button
                             onClick={() => setOpen(true)}
                             className="border-brand-lime text-brand-lime font-spaceGrotesk cursor-pointer gap-2 rounded-md border px-2 md:px-5 py-2 text-sm font-medium"

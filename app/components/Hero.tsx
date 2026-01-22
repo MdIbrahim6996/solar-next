@@ -16,7 +16,7 @@ const services = [
 ];
 
 const Hero = () => {
-    const city = useCity();
+    const city = useCity() || "your area";
 
     return (
         <section
@@ -76,7 +76,7 @@ const Hero = () => {
                             Book Solar MOT
                         </Link>
                         <Link
-                            href="#pricing"
+                            href="#plans"
                             className="border-brand-lime text-brand-lime font-spaceGrotesk cursor-pointer gap-2 rounded-md border px-5 py-2 text-sm font-medium"
                         >
                             View Plans

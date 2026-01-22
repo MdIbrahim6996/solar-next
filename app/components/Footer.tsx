@@ -8,8 +8,9 @@ import {
 
 const Footer = () => {
     return (
-        <footer className="bg-slate-10 text-brand-light-lime font-raleway md:mx-2 rounded-md bg-emerald-900">
-            <div className="flex flex-col md:flex-row md:gap-20 gap-6 md:px-20 p-5 md:py-20">
+        <footer className="bg-slate-10 overflow-hidden text-brand-light-lime font-raleway md:mx-2 md:rounded-md bg-emerald-900">
+            <div className="flex flex-col lg:flex-row md:gap-20 gap-6 md:px-20 p-5 md:py-20">
+            {/* <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-5 md:gap-20 sm:gap-20 gap-6 md:px-20 p-5 md:py-20"> */}
                 <div className="md:w-[40%]">
                     <div className="overflow-hidden rounded-md bg-slate-100 p-3">
                         <img

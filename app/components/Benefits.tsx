@@ -140,13 +140,9 @@ const Benefits = () => {
                     />
                 </div>
                 <div className="h-full w-full overflow-hidden rounded-xl">
-                    {/* <BeforeAfterSlider
-                        beforeSrc="/before-3.png"
-                        afterSrc="/after-3.png"
-                    /> */}
                     <ImageSlider
-                        beforeSrc={"/before-3.png"}
-                        afterSrc={"/after-3.png"}
+                        beforeSrc={"/before.webp"}
+                        afterSrc={"/after.webp"}
                     />
                 </div>
                 <div className="flex flex-col gap-2">

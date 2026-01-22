@@ -68,22 +68,16 @@ const plans = [
 ];
 const Pricing = () => {
     return (
-        <section id="pricing" className="my-2 px-2 md:px-2">
+        <section id="plans" className="my-2 px-2 md:px-2">
             <div className="relative md:h-220 h-520 overflow-hidden rounded-md">
-                {/* <img
-                    src="/hero-new.jpg"
-                    alt=""
-                    className="h-full w-full object-cover"
-                /> */}
                 <Image
                     src="/hero-desktop.webp"
                     alt="Solar maintenance services"
                     fill
-                    fetchPriority="high"
-                    sizes="(max-width: 480px) 100vw,
-                                       (max-width: 768px) 100vw,
-                                       (max-width: 1200px) 1200px,
-                                       1200px"
+                    // sizes="(max-width: 480px) 100vw,
+                    //                    (max-width: 768px) 100vw,
+                    //                    (max-width: 1200px) 1200px,
+                    //                    1200px"
                     className="object-cover"
                 />
                 <div className="absolute inset-0 bg-black/60"></div>

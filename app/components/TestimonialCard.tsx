@@ -1,10 +1,14 @@
+import Image from "next/image";
+
 const TestimonialCard = ({
     quote,
     author,
+    image,
     role,
 }: {
     quote: string;
     author: string;
+    image: string;
     role: string;
 }) => {
     return (
@@ -36,8 +40,10 @@ const TestimonialCard = ({
                 <div
                     // src={"avatar"}
                     // alt={"name"}
-                    className="bg-brand-deep-navy h-10 w-10 rounded-full object-cover"
-                />
+                    className="relative h-10 w-10 overflow-hidden rounded-full"
+                >
+                    <Image src={image} alt={author} fill />
+                </div>
                 <div className="flex flex-col">
                     <span className="text-brand-deep-navy text-[14px] font-semibold">
                         {author}

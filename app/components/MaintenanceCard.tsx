@@ -42,27 +42,27 @@ const MaintenanceCard = ({
                     {/* <div className="grid grid-cols-2 gap-2"></div> */}
                     <p
                         onClick={() => scrollToSection()}
-                        className="font-raleway text-brand-light-bg/80 flex gap-2 leading-5 font-medium md:text-base"
+                        className="font-raleway text-brand-light-bg/80 flex leading-5 font-medium md:text-base"
                     >
-                        <span className="w-18 text-brand-lime cursor-pointer font-semibold hover:underline">
+                        <span className="w-18 mr-2 text-brand-lime cursor-pointer font-semibold hover:underline">
                             Standard:
                         </span>
                         <span>{standard}</span>
                     </p>
                     <p
                         onClick={() => scrollToSection()}
-                        className="font-raleway text-brand-light-bg/80 flex gap-2 leading-5 font-medium md:text-base"
+                        className="font-raleway text-brand-light-bg/80 flex leading-5 font-medium md:text-base"
                     >
-                        <span className="w-18 text-brand-lime cursor-pointer font-semibold hover:underline">
+                        <span className="w-18 mr-2 text-brand-lime cursor-pointer font-semibold hover:underline">
                             Plus:
                         </span>
                         <span>{plus}</span>
                     </p>
                     <p
                         onClick={() => scrollToSection()}
-                        className="font-raleway text-brand-light-bg/80 flex gap-2 leading-5 font-medium md:text-base"
+                        className="font-raleway text-brand-light-bg/80 flex leading-5 font-medium md:text-base"
                     >
-                        <span className="w-18 text-brand-lime cursor-pointer font-semibold hover:underline">
+                        <span className="w-18 text-brand-lime mr-2 cursor-pointer font-semibold hover:underline">
                             Premium:
                         </span>
                         <span>{premium}</span>

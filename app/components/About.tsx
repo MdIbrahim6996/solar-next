@@ -58,7 +58,7 @@ const About = () => {
                 </button>
                 <h2 className="font-raleway tracking-tigh text-brand-midnight mt-2 mb-20 text-4xl leading-10 md:mb-18">
                     <p className="mb-8 font-medium">
-                        Performance You Feel, Protection You Trust
+                        Performance You Feel,<br /> Protection You Trust
                     </p>
 
                     {features.map((service) => (

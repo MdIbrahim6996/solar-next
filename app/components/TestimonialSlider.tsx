@@ -4,6 +4,7 @@ import TestimonialCard from "./TestimonialCard";
 type Testimonial = {
     quote: string;
     author: string;
+    image: string;
     role: string;
 };
 
@@ -11,26 +12,31 @@ const testimonials: Testimonial[] = [
     {
         quote: "Bill dropped after the Solar MOT — upgraded to Plus.",
         author: "James Turner",
+        image: "/james turner.png",
         role: "Homeowner",
     },
     {
         quote: "Installer vanished; they fixed two faults fast.",
         author: "Clarke Houston",
+        image: "/clarke houston.png",
         role: "Customer",
     },
     {
         quote: "The team handled everything smoothly.",
         author: "Sophia Adams",
+        image: "/sophia adams.png",
         role: "Client",
     },
     {
         quote: "Professional and consistent support!",
         author: "Michael Lee",
+        image: "/michael lee.png",
         role: "Buyer",
     },
     {
         quote: "Amazing attention to detail.",
         author: "Sarah Kim",
+        image: "/sarah kim.png",
         role: "Customer",
     },
 ];
@@ -49,12 +55,20 @@ export default function TestimonialSlider() {
     const [index, setIndex] = useState<number>(visibleCount);
     const [transition, setTransition] = useState<boolean>(true);
 
+    const MIN_INDEX = 0;
+    const MAX_INDEX = slides.length - visibleCount;
+
+    const safeSetIndex = (next: number) => {
+        if (next > MAX_INDEX) return visibleCount;
+        if (next < MIN_INDEX) return testimonials.length;
+        return next;
+    };
     // Auto slide
     useEffect(() => {
         const id = setInterval(() => {
             setTransition(true);
-            setIndex((i) => i + 1);
-        }, 5000);
+            setIndex((i) => safeSetIndex(i + 1));
+        }, 2000);
 
         return () => clearInterval(id);
     }, []);
@@ -64,15 +78,22 @@ export default function TestimonialSlider() {
         const slider = sliderRef.current;
         if (!slider) return;
 
-        const handleEnd = () => {
+        const handleEnd = (e: TransitionEvent) => {
+            if (e.target !== slider) return;
             if (index === slides.length - visibleCount) {
                 setTransition(false);
                 setIndex(visibleCount);
+                requestAnimationFrame(() => {
+                    setIndex(visibleCount);
+                });
             }
 
             if (index === 0) {
                 setTransition(false);
                 setIndex(testimonials.length);
+                requestAnimationFrame(() => {
+                    setIndex(testimonials.length);
+                });
             }
         };
 
@@ -103,6 +124,7 @@ export default function TestimonialSlider() {
                         <TestimonialCard
                             quote={t.quote}
                             author={t.author}
+                            image={t.image}
                             role={t.role}
                         />
                     </div>

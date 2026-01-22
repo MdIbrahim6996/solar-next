@@ -152,6 +152,10 @@ const Contact = () => {
 
                             <button
                                 type="button"
+                                role="switch"
+                                aria-checked={previouslyInstalled}
+                                aria-labelledby="installed-label"
+                                aria-label="Previously installed by another company"
                                 onClick={() =>
                                     setPreviouslyInstalled(!previouslyInstalled)
                                 }
@@ -162,6 +166,7 @@ const Contact = () => {
                                 }`}
                             >
                                 <span
+                                    aria-hidden="true"
                                     className={`cursor-pointer inline-block h-5 w-5 transform rounded-full bg-white shadow-md transition-transform duration-300 ${
                                         previouslyInstalled
                                             ? "translate-x-5"
@@ -220,60 +225,17 @@ const Contact = () => {
                             className="border-brand-light-lime font-inter w-full border-b bg-transparent text-sm focus:outline-none md:text-base"
                         />
                     </div>
-                    {/* <div className="flex items-center gap-5">
-                        <label className="flex items-center gap-2">
-                            <input
-                                type="radio"
-                                value="freeQuote"
-                                name="type"
-                                checked={selected === "freeQuote"}
-                                onChange={(e) => setSelected(e.target.value)}
-                                required={true}
-                                className="accent-brand-lime"
-                            />
-                            Free Quote
-                        </label>
-                        <label className="flex items-center gap-2">
-                            <input
-                                type="radio"
-                                value="freeAssessment"
-                                name="type"
-                                checked={selected === "freeAssessment"}
-                                onChange={(e) => setSelected(e.target.value)}
-                                className="accent-brand-lime"
-                            />
-                            Free Assessment
-                        </label>
-                        <label className="flex items-center gap-2">
-                            <input
-                                type="radio"
-                                value="else"
-                                name="type"
-                                checked={selected === "else"}
-                                onChange={(e) => setSelected(e.target.value)}
-                                className="accent-brand-lime"
-                            />
-                            Something Else
-                        </label>
-                    </div> */}
-                    {/* {selected === "else" && (
-                        <div>
-                            <textarea
-                                placeholder="Tell us about the project."
-                                rows={5}
-                                className="font-inter h-40 w-full border-b bg-transparent py-2 text-sm focus:outline-none md:h-auto md:text-base"
-                            ></textarea>
-                        </div>
-                    )} */}
                     <div className="flex items-center gap-2">
                         <button
+                            aria-label="Book Solar MOT"
                             type="submit"
                             className="cursor-pointer bg-brand-light-lime hover:bg-brand-highlight text-brand-navy font-inter w-full rounded-md py-3 font-semibold transition-colors"
                         >
                             Book Solar MOT
                         </button>
                         <button
-                            type="submit"
+                            aria-label="Get a Plan Quote"
+                            type="button"
                             className="cursor-pointer border-brand-light-lime text-brand-light-lime hover:bg-brand-highlight font-inter w-full rounded-md border py-3 font-semibold transition-colors"
                         >
                             Get Plan Quote

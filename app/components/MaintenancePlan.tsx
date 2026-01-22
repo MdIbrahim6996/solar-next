@@ -142,13 +142,8 @@ const MaintenancePlan = () => {
             id="installation"
             className="install relative  overflow-hidden bg-emerald-900 md:mx-2 md:rounded-t-md"
         >
-            {/* <img
-                src="/about-1.jpg"
-                className="absolute inset-0 h-full w-full object-cover"
-                alt=""
-            /> */}
             <Image
-                src="/about-1.jpg"
+                src="/about-1.webp"
                 alt="Solar maintenance services"
                 fill
                 sizes="(max-width: 480px) 100vw,
