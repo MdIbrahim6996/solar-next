@@ -103,7 +103,7 @@ const Testimonial = () => {
                                 className="text-brand-navy mb-10"
                             />
                             <p className="text-3xl md:text-5xl font-medium">
-                                4.8/5
+                                4.3/5
                             </p>
                             <p className="font-montserrat mt-2 text-2xl font-medium">
                                 Rating
@@ -115,7 +115,7 @@ const Testimonial = () => {
                                 className="text-brand-navy mb-10"
                             />
                             <p className="text-3xl md:text-5xl font-medium">
-                                4,200+
+                                1,000+
                             </p>
                             <p className="font-montserrat text-l mt-2 text-2xl font-medium">
                                 Reviews
@@ -127,7 +127,7 @@ const Testimonial = () => {
                                 className="text-brand-navy mb-10"
                             />
                             <p className="text-3xl md:text-5xl font-medium">
-                                200+
+                                100+
                             </p>
                             <p className="font-montserrat mt-2 text-2xl font-medium">
                                 MOT Booked

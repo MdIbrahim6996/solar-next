@@ -84,24 +84,11 @@ const Benefits = () => {
                 },
             }
         );
-
-        // gsap.from(subtextRef.current, {
-        //     y: 30,
-        //     opacity: 0,
-        //     scale: 0.98,
-        //     duration: 0.8,
-        //     ease: "power3.out",
-        //     delay: 0.15,
-        //     scrollTrigger: {
-        //         trigger: ".benefits",
-        //         start: "top 75%",
-        //     },
-        // });
     });
 
     return (
         <section
-            id="benefits"
+            id="services"
             className="benefits bg-emerald-900 px-2 py-20 md:m-2 md:rounded-lg md:px-[5%]"
         >
             {/* Section Heading */}

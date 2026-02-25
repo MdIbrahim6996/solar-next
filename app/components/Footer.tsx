@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
     FaFacebook,
     FaInstagram,
@@ -10,7 +11,7 @@ const Footer = () => {
     return (
         <footer className="bg-slate-10 overflow-hidden text-brand-light-lime font-raleway md:mx-2 md:rounded-md bg-emerald-900">
             <div className="flex flex-col lg:flex-row md:gap-20 gap-6 md:px-20 p-5 md:py-20">
-            {/* <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-5 md:gap-20 sm:gap-20 gap-6 md:px-20 p-5 md:py-20"> */}
+                {/* <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-5 md:gap-20 sm:gap-20 gap-6 md:px-20 p-5 md:py-20"> */}
                 <div className="md:w-[40%]">
                     <div className="overflow-hidden rounded-md bg-slate-100 p-3">
                         <img
@@ -25,58 +26,57 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="">
+                <div>
                     <p className="text-xl font-semibold underline underline-offset-3">
                         Navigation
                     </p>
-                    <ul className="mt-4 capitalize">
-                        <li className="flex items-center gap-2">
-                            <p className="bg-brand-light-lime h-2 w-2 rounded-full"></p>
-                            <p className="font-medium">Home</p>
-                        </li>
-                        <li className="flex items-center gap-2">
-                            <p className="bg-brand-light-lime h-2 w-2 rounded-full"></p>
-                            <p className="font-medium">Services</p>
-                        </li>
-                        <li className="flex items-center gap-2">
-                            <p className="bg-brand-light-lime h-2 w-2 rounded-full"></p>
-                            <p className="font-medium">Plans</p>
-                        </li>
-                        <li className="flex items-center gap-2">
-                            <p className="bg-brand-light-lime h-2 w-2 rounded-full"></p>
-                            <p className="font-medium">Contact</p>
-                        </li>
+                    <ul className="mt-4 capitalize flex flex-col">
+                        <Link href="#hero" className="font-medium">
+                            <span className="mr-1">&#9679;</span> Home
+                        </Link>
+                        <Link href="#services" className="font-medium">
+                            <span className="mr-1">&#9679;</span> Services
+                        </Link>
+                        <Link href="#plans" className="font-medium">
+                            <span className="mr-1">&#9679;</span> Plans
+                        </Link>
+                        <Link href="#contact" className="font-medium">
+                            <span className="mr-1">&#9679;</span> Contact
+                        </Link>
                     </ul>
                 </div>
                 <div className="">
                     <p className="text-xl font-semibold underline underline-offset-3">
                         Quick Links
                     </p>
-                    <ul className="mt-4 capitalize">
-                        <li className="flex items-center gap-2">
-                            <p className="bg-brand-light-lime h-2 w-2 rounded-full"></p>
-                            <p className="font-medium whitespace-nowrap">
-                                Policy Document
-                            </p>
-                        </li>
-                        <li className="flex items-center gap-2">
-                            <p className="bg-brand-light-lime h-2 w-2 rounded-full"></p>
-                            <p className="font-medium whitespace-nowrap">
+                    <ul className="mt-4 capitalize flex flex-col">
+                        <Link
+                            href="privacy-policy"
+                            className="font-medium whitespace-nowrap "
+                        >
+                            &#9679;
+                            <span className="ml-1 hover:underline">
                                 Privacy Policy
-                            </p>
-                        </li>
-                        <li className="flex items-center gap-2">
-                            <p className="bg-brand-light-lime h-2 w-2 rounded-full"></p>
-                            <p className="font-medium whitespace-nowrap">
+                            </span>
+                        </Link>
+                        <Link
+                            href="cookie-policy"
+                            className="font-medium whitespace-nowrap"
+                        >
+                            &#9679;
+                            <span className="ml-1 hover:underline">
                                 Cookie Policy
-                            </p>
-                        </li>
-                        <li className="flex items-center gap-2">
-                            <p className="bg-brand-light-lime h-2 w-2 rounded-full"></p>
-                            <p className="font-medium whitespace-nowrap">
+                            </span>
+                        </Link>
+                        <Link
+                            href="vulnerable-persons-policy"
+                            className="font-medium whitespace-nowrap "
+                        >
+                            &#9679;
+                            <span className="ml-1 hover:underline">
                                 Vulnerable Persons Policy
-                            </p>
-                        </li>
+                            </span>
+                        </Link>
                     </ul>
                 </div>
                 <div className="">
@@ -89,9 +89,12 @@ const Footer = () => {
                                 <p className="bg-brand-light-lime h-2 w-2 rounded-full"></p>
                                 <p className="font-medium">Email</p>
                             </div>
-                            <p className="hover:underline text-brand-light-lime/90 font-inter ml-4 text-sm font-medium lowercase">
+                            <Link
+                                href={`https://mail.google.com/mail/?view=cm&fs=1&to=Info@no1home.co.uk&su=Inquiry&body=Hello, I would like to inquire about...`}
+                                className="hover:underline text-brand-light-lime/90 font-inter ml-4 text-sm font-medium lowercase"
+                            >
                                 Info@no1home.co.uk
-                            </p>
+                            </Link>
                         </li>
                         <li className="-space-y-1">
                             <div className="flex items-center gap-2">
@@ -114,7 +117,7 @@ const Footer = () => {
                         </li>
                     </ul>
                 </div>
-                <div className="md:w-[30%] pt-3">
+                <div className="w-[30%] pt-3">
                     <div>
                         <div className="grid grid-cols-3 gap-1">
                             <div className="rounded-md bg-white p-1">
@@ -147,8 +150,8 @@ const Footer = () => {
                             />
                         </div>
                     </div>
-                    <div className="w-[60%] mx-auto">
-                        <p className="mt-2 whitespace-nowrap w-fit md:w-full mx-auto text-xl font-medium underline underline-offset-3">
+                    <div>
+                        <p className="mt-2 whitespace-nowrap w-fit md:w-ful mx-auto text-xl font-medium underline underline-offset-3">
                             Follow Us:
                         </p>
                         <div className="mt-1 flex items-center md:space-x-1 justify-between text-2xl">
@@ -163,9 +166,13 @@ const Footer = () => {
             </div>
             <div className="font-montserrat bg-brand-light-lime text-brand-deep-navy flex flex-col md:flex-row gap-3 justify-between md:px-20 px-5 py-3">
                 <div className="divide-brand-navy/70 flex space-x-3 divide-x-2 w-fit md:w-full mx-auto text-xs md:text-sm font-medium">
-                    <p className="pr-3">Policy Document</p>
-                    <p className="pr-3">Cookie Policy</p>
-                    <p className="pr-3">Privacy Policy</p>
+                    {/* <p className="pr-3">Policy Document</p> */}
+                    <p className="pr-3">
+                        <Link href={"/cookie-policy"}>Cookie Policy</Link>
+                    </p>
+                    <p className="pr-3">
+                        <Link href={"/privacy-policy"}>Privacy Policy</Link>
+                    </p>
                 </div>
                 <div>
                     <p className="text-xs md:text-sm text-center md:text-left font-medium md:whitespace-nowrap">

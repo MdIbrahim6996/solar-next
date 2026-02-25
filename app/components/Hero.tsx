@@ -1,8 +1,8 @@
 "use client";
-import useCity from "../hooks/useCity";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { useUserCity } from "../hooks/useUserCity";
 
 const Calculator = dynamic(() => import("./Calculator"), { ssr: false });
 
@@ -15,25 +15,14 @@ const services = [
     "Fully Insured",
 ];
 
-const Hero = () => {
-    const city = useCity() || "your area";
-
+const Hero = ({ initialCity }: { initialCity: string }) => {
+    // const city = initialCity;
+    const { city } = useUserCity(initialCity);
     return (
         <section
             id="home"
             className="relative flex h-screen flex-col justify-end overflow-hidden px-4 pb-20 md:m-1.5 md:rounded-lg md:px-10 md:pb-10"
         >
-            {/* <picture className="absolute inset-0 h-screen w-full overflow-hidden">
-                <source srcSet="/hero-mobile.webp" media="(max-width: 768px)" />
-                <img
-                    src="/hero-desktop.webp"
-                    alt=""
-                    className="hero_image h-full w-full object-cover"
-                    loading="eager"
-                    fetchPriority="high"
-                />
-            </picture> */}
-
             <Image
                 src="/hero-desktop.webp"
                 alt="Solar maintenance services"

@@ -79,7 +79,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     --font-inter: "Inter", sans-serif;
     --font-elmSans: "Elm Sans", sans-serif;
     --font-ibmPlexMono: "IBM Plex Mono", sans-serif;
-    /* --font-quicksand: "Quicksand", sans-serif; */
 
     --color-brand-lime: #a6ce39;
     --color-brand-light-lime: #d4eca1;

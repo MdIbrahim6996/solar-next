@@ -62,7 +62,7 @@ const Navbar = () => {
                     className="flex items-center justify-between md:px-4 px-2 bg-brand-charcoal/15 backdrop-blur-sm
              text-brand-light-bg m-2 mx-2 md:mr-5 rounded-md py-2"
                 >
-                    <Link href="#hero" className="w-16 md:w-40 md:h-10">
+                    <Link href="/" className="w-16 md:w-40 md:h-10">
                         <img
                             src="/solarcare-logo.svg"
                             className="h-full w-full"

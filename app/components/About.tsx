@@ -1,14 +1,6 @@
-"use client";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SplitText } from "gsap/SplitText";
-import { useRef } from "react";
 import { MdCheckCircleOutline } from "react-icons/md";
 import Image from "next/image";
 import CTAButton from "./CTAButton";
-
-gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const features = [
     "Premium solar maintenance for homeowners — Start with a Solar MOT (£250): clean + 25-point health check, report & certificate",
@@ -23,29 +15,6 @@ const features = [
 ];
 
 const About = () => {
-    const textRef = useRef(null);
-
-    useGSAP(() => {
-        const text = SplitText.create(textRef.current, {
-            type: "lines",
-            mask: "lines",
-        });
-        gsap.fromTo(
-            text.lines,
-            {
-                y: "100%",
-            },
-            {
-                y: "0%",
-                stagger: 0.2,
-                duration: 0.5,
-                scrollTrigger: {
-                    trigger: ".about",
-                    start: "top 80%",
-                },
-            }
-        );
-    });
     return (
         <section
             id="about"
@@ -58,7 +27,8 @@ const About = () => {
                 </button>
                 <h2 className="font-raleway tracking-tigh text-brand-midnight mt-2 mb-20 text-4xl leading-10 md:mb-18">
                     <p className="mb-8 font-medium">
-                        Performance You Feel,<br /> Protection You Trust
+                        Performance You Feel,
+                        <br /> Protection You Trust
                     </p>
 
                     {features.map((service) => (
@@ -81,49 +51,7 @@ const About = () => {
                     ))}
                 </h2>
                 <CTAButton />
-
-                {/* <div
-                    onClick={() => scrollToSection("contact")}
-                    className="text-brand-deep-navy flex h-full items-center"
-                >
-                    <button
-                        aria-label="Book Solar MOT"
-                        className="bg-brand-lime font-spaceGrotesk cursor-pointer gap-2 rounded-md px-5 py-2 font-medium"
-                    >
-                        Book Solar MOT
-                    </button>
-                    <button
-                        aria-hidden="true"
-                        className="bg-brand-lime h-full cursor-pointer rounded-md px-5 py-2"
-                    >
-                        <ArrowUpRight size={23} />
-                    </button>
-                </div> */}
             </div>
-            {/* RIGHT IMAGE GRID */}
-            {/* <div className="grid h-full grid-cols-2 gap-2 md:h-180 md:w-[60%]">
-                <div className="col-span-2 row-span-2 h-140 overflow-hidden rounded-xl md:col-span-1 md:h-full">
-                    <img
-                        src="hero-prod.png"
-                        alt="Solar panels on home roof"
-                        className="h-full w-full object-cover"
-                    />
-                </div>
-                <div className="h-70 overflow-hidden rounded-xl md:h-full">
-                    <img
-                        src="/about1.jpeg"
-                        alt="Solar technician installing panels"
-                        className="h-full w-full object-cover"
-                    />
-                </div>
-                <div className="h-70 overflow-hidden rounded-xl md:h-full">
-                    <img
-                        src="/about2.jpeg"
-                        alt="Modern solar setup on building"
-                        className="h-full w-full scale-111 object-cover"
-                    />
-                </div>
-            </div> */}
 
             <div className="w-screen md:w-1/2 md:hidden">
                 <div className="relative h-100 rounded-md overflow-hidden mx-5">

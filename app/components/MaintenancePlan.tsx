@@ -1,12 +1,5 @@
-"use client";
-
-import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
-import { SplitText } from "gsap/SplitText";
-import gsap from "gsap";
 import MaintenanceCard from "./MaintenanceCard";
 import Image from "next/image";
-// import { useAutoFetch } from "../../hooks/useAutoFetch";
 
 const installationSteps = [
     {
@@ -73,70 +66,6 @@ const installationSteps = [
 ];
 
 const MaintenancePlan = () => {
-    const textRef = useRef(null);
-    const subtextRef = useRef(null);
-
-    // const install = useAutoFetch<any>("/InstallationProcess");
-
-    useGSAP(() => {
-        const text = SplitText.create(textRef.current, {
-            type: "lines",
-            mask: "lines",
-        });
-        const subtext = SplitText.create(subtextRef.current, {
-            type: "lines",
-            mask: "lines",
-        });
-        gsap.fromTo(
-            text.lines,
-            {
-                y: "100%",
-            },
-            {
-                y: "0%",
-                stagger: 0.2,
-                duration: 0.5,
-                scrollTrigger: {
-                    trigger: ".install",
-                    start: "top 70%",
-                },
-            }
-        );
-        gsap.fromTo(
-            subtext.lines,
-            {
-                y: "100%",
-            },
-            {
-                y: "0%",
-                stagger: 0.2,
-                duration: 0.5,
-                delay: 0.5,
-                scrollTrigger: {
-                    trigger: ".install",
-                    start: "top center",
-                },
-            }
-        );
-        gsap.fromTo(
-            ".install-grid .card",
-            {
-                y: "100%",
-                opacity: 0,
-            },
-            {
-                y: "0%",
-                opacity: 1,
-                stagger: 0.2,
-                duration: 0.5,
-                delay: 0.5,
-                scrollTrigger: {
-                    trigger: ".install-grid",
-                    start: "top 70%",
-                },
-            }
-        );
-    });
     return (
         <section
             id="installation"
@@ -156,16 +85,10 @@ const MaintenancePlan = () => {
 
             <div className="relative px-2 py-20 md:px-[5%]">
                 <div>
-                    <h2
-                        ref={textRef}
-                        className="font-raleway text-brand-light-bg text-3xl font-semibold md:text-5xl"
-                    >
+                    <h2 className="font-raleway text-brand-light-bg text-3xl font-semibold md:text-5xl">
                         How Our Maintenance Plan Works
                     </h2>
-                    <p
-                        ref={subtextRef}
-                        className="font-inter text-brand-light-bg/90 mt-5 md:ml-80 ml-10 md:w-[65%] text-base leading-5.5"
-                    >
+                    <p className="font-inter text-brand-light-bg/90 mt-5 md:ml-80 ml-10 md:w-[65%] text-base leading-5.5">
                         Our dedicated team of engineers offer end-to-end solar
                         maintenance care and solutions to meet your needs. This
                         is what the process looks like, once you’ve booked a

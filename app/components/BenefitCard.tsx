@@ -14,7 +14,7 @@ const BenefitCard = ({
     return (
         <div
             key={index}
-            className="group bg-brand-light-lime/90 flex h-70 flex-col justify-between overflow-hidden rounded-lg md:h-[250px]"
+            className="group bg-brand-light-lime/90 flex h-70 flex-col justify-between overflow-hidden rounded-lg md:h-63"
         >
             {/* Content */}
             <div className="m-3 w-fit rounded-md bg-emerald-900 p-3">

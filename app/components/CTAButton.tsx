@@ -4,7 +4,7 @@ import Link from "next/link";
 const CTAButton = ({ type = "base" }: { type?: "base" | "sm" | "lg" }) => {
     return (
         <Link
-            href="contact"
+            href="#contact"
             className="text-brand-deep-navy flex h-full items-center"
         >
             <span

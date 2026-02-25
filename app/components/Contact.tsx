@@ -2,12 +2,64 @@
 
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useState } from "react";
-import useCity from "../hooks/useCity";
+import { useUserCity } from "../hooks/useUserCity";
 
-const Contact = () => {
+const Contact = ({ initialCity }: { initialCity: string }) => {
+    const [fullName, setFullName] = useState("");
+    const [email, setEmail] = useState("");
+    const [postcode, setPostcode] = useState("");
+    const [phone, setPhone] = useState("");
+    const [preferredDate, setPreferredDate] = useState("");
     const [previouslyInstalled, setPreviouslyInstalled] = useState(false);
-    // const [selected, setSelected] = useState("");
-    const city = useCity() ?? "Kolkata";
+    const [installerName, setInstallerName] = useState("");
+    const [installYear, setInstallYear] = useState("");
+    const [notes, setNotes] = useState("");
+    const [loading, setLoading] = useState(false);
+
+    const { city } = useUserCity(initialCity);
+
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        setLoading(true);
+
+        const submitter = (e.nativeEvent as SubmitEvent)
+            .submitter as HTMLButtonElement;
+        const subject = submitter?.value;
+
+        const formattedSubject =
+            subject.charAt(0).toUpperCase() + subject.slice(1);
+
+        const payload = {
+            fullName,
+            email,
+            phone,
+            postcode,
+            preferredDate,
+            previouslyInstalled,
+            installerName: previouslyInstalled ? installerName : "",
+            installYear: previouslyInstalled ? installYear : "",
+            notes,
+            city, // already in your component
+            company: "", // honeypot (spam protection)
+            subject,
+        };
+
+        const res = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+        });
+
+        setLoading(false);
+        console.log("Form submitted with payload:", payload);
+
+        if (res.ok) {
+            alert(`${formattedSubject} sent successfully!`);
+        } else {
+            alert("Something went wrong. Please try again.");
+        }
+        setLoading(false);
+    }
 
     return (
         <section
@@ -61,7 +113,7 @@ const Contact = () => {
                             Call Us
                         </h4>
                         <p className="font-inter text-sm text-[--color-brand-slate]">
-                            Mon - Fri 8:00 AM to 9:00 PM
+                            Mon - Fri 9:00 AM to 5:00 PM
                         </p>
                         <a
                             href="tel:1234567890"
@@ -74,7 +126,7 @@ const Contact = () => {
             </div>
 
             {/* RIGHT — Form */}
-            <div className="text-brand-light-lime max-h-screen bg-emerald-900 p-4 py-20 shadow-sm md:rounded-xl md:p-8">
+            <div className="text-brand-light-lime h-scree bg-emerald-900 p-4 py-20 shadow-sm md:rounded-xl md:p-8">
                 <h3 className="font-raleway mb-2 text-2xl font-semibold md:text-3xl">
                     Book Your Solar MOT in {city}.
                 </h3>
@@ -83,7 +135,11 @@ const Contact = () => {
                     choose a monthly plan.
                 </p>
 
-                <form className="space-y-6" autoComplete="off">
+                <form
+                    className="space-y-6"
+                    autoComplete="off"
+                    onSubmit={handleSubmit}
+                >
                     <div className="flex items-center gap-4">
                         <div className="flex-1">
                             <label htmlFor="name" className="text-sm">
@@ -93,6 +149,7 @@ const Contact = () => {
                                 type="text"
                                 id="name"
                                 required={true}
+                                onChange={(e) => setFullName(e.target.value)}
                                 className="border-brand-light-lime font-inter w-full border-b bg-transparent text-sm focus:outline-none md:text-base"
                             />
                         </div>
@@ -104,6 +161,7 @@ const Contact = () => {
                             <input
                                 type="email"
                                 id="email"
+                                onChange={(e) => setEmail(e.target.value)}
                                 className="border-brand-light-lime font-inter w-full border-b bg-transparent text-sm focus:outline-none md:text-base"
                             />
                         </div>
@@ -118,6 +176,7 @@ const Contact = () => {
                                 id="post"
                                 maxLength={8}
                                 required={true}
+                                onChange={(e) => setPostcode(e.target.value)}
                                 className="border-brand-light-lime font-inter w-full border-b bg-transparent text-sm focus:outline-none md:text-base"
                             />
                         </div>
@@ -131,6 +190,7 @@ const Contact = () => {
                                 minLength={10}
                                 id="phone number"
                                 required={true}
+                                onChange={(e) => setPhone(e.target.value)}
                                 className="border-brand-light-lime font-inter w-full border-b bg-transparent text-sm focus:outline-none md:text-base"
                             />
                         </div>
@@ -141,6 +201,9 @@ const Contact = () => {
                             <input
                                 type="date"
                                 id="date"
+                                onChange={(e) =>
+                                    setPreferredDate(e.target.value)
+                                }
                                 className="border-brand-light-lime font-inter w-full border-b bg-transparent text-sm focus:outline-none md:text-base"
                             />
                         </div>
@@ -190,6 +253,9 @@ const Contact = () => {
                                 <input
                                     type="text"
                                     id="installerName"
+                                    onChange={(e) =>
+                                        setInstallerName(e.target.value)
+                                    }
                                     className="border-brand-light-lime font-inter w-full border-b bg-transparent text-sm focus:outline-none md:text-base"
                                 />
                             </div>
@@ -203,11 +269,14 @@ const Contact = () => {
                                 <input
                                     type="number"
                                     min={1900}
-                                    max={2099}
+                                    max={new Date().getFullYear()}
                                     maxLength={4}
                                     step="1"
                                     placeholder="Enter year"
                                     id="installDate"
+                                    onChange={(e) =>
+                                        setInstallYear(e.target.value)
+                                    }
                                     className="border-brand-light-lime font-inter w-full border-b bg-transparent text-sm focus:outline-none md:text-base"
                                 />
                             </div>
@@ -222,20 +291,30 @@ const Contact = () => {
                         <textarea
                             rows={2}
                             id="notes"
+                            onChange={(e) => setNotes(e.target.value)}
                             className="border-brand-light-lime font-inter w-full border-b bg-transparent text-sm focus:outline-none md:text-base"
                         />
                     </div>
-                    <div className="flex items-center gap-2">
+                    {loading && (
+                        <p className="text-center text-lg font-semibold">
+                            Sending...
+                        </p>
+                    )}
+                    <div className="flex flex-col md:flex-row items-center gap-2">
                         <button
                             aria-label="Book Solar MOT"
                             type="submit"
+                            name="subject"
+                            value="booking"
                             className="cursor-pointer bg-brand-light-lime hover:bg-brand-highlight text-brand-navy font-inter w-full rounded-md py-3 font-semibold transition-colors"
                         >
                             Book Solar MOT
                         </button>
                         <button
                             aria-label="Get a Plan Quote"
-                            type="button"
+                            type="submit"
+                            name="subject"
+                            value="enquiry"
                             className="cursor-pointer border-brand-light-lime text-brand-light-lime hover:bg-brand-highlight font-inter w-full rounded-md border py-3 font-semibold transition-colors"
                         >
                             Get Plan Quote

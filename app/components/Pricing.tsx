@@ -74,10 +74,6 @@ const Pricing = () => {
                     src="/hero-desktop.webp"
                     alt="Solar maintenance services"
                     fill
-                    // sizes="(max-width: 480px) 100vw,
-                    //                    (max-width: 768px) 100vw,
-                    //                    (max-width: 1200px) 1200px,
-                    //                    1200px"
                     className="object-cover"
                 />
                 <div className="absolute inset-0 bg-black/60"></div>
@@ -191,7 +187,7 @@ const Pricing = () => {
                                     {plan.subtitle}
                                 </p>
                                 <button
-                                    onClick={() => openGmail()}
+                                    onClick={() => openGmail(plan.title)}
                                     aria-label={`Get started with the ${plan.title} solar maintenance plan`}
                                     className={`btn font-spaceGrotesk relative mb-8 w-full cursor-pointer overflow-hidden rounded-md py-3 font-semibold transition-all ${
                                         plan.highlight

@@ -2,10 +2,13 @@
 
 import { useGSAP } from "@gsap/react";
 import { useRef, useState } from "react";
+
 import { SplitText } from "gsap/SplitText";
 import gsap from "gsap";
 import { scrollToSection } from "../utils/constants";
+
 const Modal = dynamic(() => import("./Modal"), { ssr: false });
+
 import { GrCertificate, GrServices } from "react-icons/gr";
 import { MdMoveUp } from "react-icons/md";
 import { LuMonitorCog } from "react-icons/lu";
@@ -13,6 +16,9 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const subtextContent = [
     "Deep Clean + 25 Point Health Check",
@@ -75,8 +81,8 @@ const Features = () => {
                 stagger: 0.2,
                 duration: 0.5,
                 scrollTrigger: {
-                    trigger: ".install",
-                    start: "top 70%",
+                    trigger: "#services",
+                    start: "top 90%",
                 },
             }
         );
@@ -117,14 +123,9 @@ const Features = () => {
     });
     return (
         <section
-            id="installation"
+            id="services"
             className="install relative mt-1.5 min-h-screen overflow-hidden bg-emerald-900 md:mx-2 md:rounded-md"
         >
-            {/* <img
-                src="/panel-install.jpg"
-                className="absolute inset-0 h-full w-full object-cover"
-                alt=""
-            /> */}
             <Image
                 src="/panel-install.jpg"
                 alt="Solar maintenance services"
