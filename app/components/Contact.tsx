@@ -1,7 +1,7 @@
 "use client";
 
 import { Mail, MapPin, Phone } from "lucide-react";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useUserCity } from "../hooks/useUserCity";
 
 const Contact = ({ initialCity }: { initialCity: string }) => {
@@ -17,6 +17,13 @@ const Contact = ({ initialCity }: { initialCity: string }) => {
     const [loading, setLoading] = useState(false);
 
     const { city } = useUserCity(initialCity);
+
+    const today = useMemo(() => {
+        const now = new Date();
+        const offset = now.getTimezoneOffset();
+        const localDate = new Date(now.getTime() - offset * 60 * 1000);
+        return localDate.toISOString().split("T")[0];
+    }, []);
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -201,6 +208,7 @@ const Contact = ({ initialCity }: { initialCity: string }) => {
                             <input
                                 type="date"
                                 id="date"
+                                min={today}
                                 onChange={(e) =>
                                     setPreferredDate(e.target.value)
                                 }

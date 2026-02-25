@@ -23,10 +23,10 @@ export const openGmail = (plan: string = "Standard") => {
 
                 Looking forward to your response.
 
-                Name:
-                Phone:
-                Postcode:
-                Preferred contact time:
+                Name: [Your Name]
+                Phone: [Your Phone Number]
+                Postcode: [Your Post Code]
+                Preferred contact time: [HH:MM] AM/PM
 
                 Thanks,
                 [Your Name]
@@ -38,5 +38,3 @@ export const openGmail = (plan: string = "Standard") => {
 
     window.open(url, "_blank"); // opens Gmail compose
 };
-
-//https://script.google.com/macros/s/AKfycbwLcYxgRyboe0cle-5Qq5c-fPVGr60DEqd0Cy--gGJwfqqvaNJe9YqVMdcMnl_Hj5qT/exec
