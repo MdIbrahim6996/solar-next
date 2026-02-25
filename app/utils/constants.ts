@@ -1,6 +1,3 @@
-export const apiBaseUrl =
-    "https://opensheet.elk.sh/1qP1Gs32T4Ho1GKckvnFKVRI1R3PcGfQVYkPehRB0Ytc";
-
 export const BRAND_NAME = "No.1 Solar Care";
 
 export const scrollToSection = (id: string) => {
@@ -41,6 +38,5 @@ export const openGmail = (plan: string = "Standard") => {
 
     window.open(url, "_blank"); // opens Gmail compose
 };
-
 
 //https://script.google.com/macros/s/AKfycbwLcYxgRyboe0cle-5Qq5c-fPVGr60DEqd0Cy--gGJwfqqvaNJe9YqVMdcMnl_Hj5qT/exec
