@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 // import { ArrowUpRight } from "lucide-react";
 import { useRef, useState } from "react";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { scrollToSection } from "../utils/constants";
 import CTAButton from "./CTAButton";
 import Link from "next/link";
@@ -126,7 +126,12 @@ const Navbar = () => {
                             />
                         ))}
                     </div>
-                    <div className="">
+                    <div
+                        onClick={() => {
+                            setOpen(false);
+                            scrollToSection("#contact");
+                        }}
+                    >
                         <CTAButton />
                     </div>
                 </div>
