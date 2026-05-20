@@ -24,19 +24,6 @@ const ImageSlider: React.FC<BeforeAfterSliderProps> = ({
 
     return (
         <main className="relative grid place-items-center">
-            {/* <p
-                className="absolute top-0 left-0 z-100 p-0.5 px-6 m-2 bg-emerald-900 rounded-full text-brand-light-lime
-             font-semibold font-spaceGrotesk"
-            >
-                Before
-            </p> */}
-            {/* <p
-                className="absolute top-0 right-0 z-100 p-0.5 px-6 m-2 bg-emerald-900 rounded-full text-brand-light-lime
-             font-semibold font-spaceGrotesk"
-            >
-                After
-            </p> */}
-
             <div
                 ref={containerRef}
                 className="relative overflow-hidden rounded-lg"
@@ -52,9 +39,7 @@ const ImageSlider: React.FC<BeforeAfterSliderProps> = ({
                             width: "var(--position)",
                         }}
                     />
-                    <p
-                        className="absolute top-0 left-15 p-0.5 px-6 m-2 bg-emerald-900 rounded-full text-brand-light-lime font-semibold font-spaceGrotesk"
-                    >
+                    <p className="absolute top-0 left-15 p-0.5 px-6 m-2 bg-emerald-900 rounded-full text-brand-light-lime font-semibold font-spaceGrotesk">
                         Before
                     </p>
 

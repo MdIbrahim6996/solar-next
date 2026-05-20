@@ -1,5 +1,4 @@
 import MaintenanceCard from "./MaintenanceCard";
-import Image from "next/image";
 
 const installationSteps = [
     {
@@ -69,17 +68,14 @@ const MaintenancePlan = () => {
     return (
         <section
             id="installation"
-            className="install relative  overflow-hidden bg-emerald-900 md:mx-2 md:rounded-t-md"
+            className="install relative  overflow-hidden md:mx-2 md:rounded-t-md"
         >
-            <Image
-                src="/about-1.webp"
+            <img
+                src="/images/maintain.webp"
                 alt="Solar maintenance services"
-                fill
-                sizes="(max-width: 480px) 100vw,
-                       (max-width: 768px) 100vw,
-                       (max-width: 1200px) 1200px,
-                       1200px"
-                className="object-cover"
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
             />
             <div className="absolute inset-0 bg-black/50" />
 

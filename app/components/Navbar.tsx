@@ -64,7 +64,7 @@ const Navbar = () => {
                 >
                     <Link href="/" className="w-16 md:w-40 md:h-10">
                         <img
-                            src="/solarcare-logo.svg"
+                            src="/images/solarcare-logo.svg"
                             className="h-full w-full"
                             alt="Solar Care Logo"
                         />

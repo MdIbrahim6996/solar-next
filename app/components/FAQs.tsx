@@ -8,47 +8,47 @@ const faqs = [
     {
         question: "Does rain clean solar panels?",
         answer: "Rain does not deep clean panels. Proper cleaning requires PV-safe soft brushes and purified water.",
-        image: "/clean.webp",
+        image: "/images/clean.webp",
     },
     {
         question: "How often should solar panels be cleaned?",
         answer: "A yearly clean is the baseline. Clean quarterly if your area has pollen, trees, coastal salt, or heavy bird activity.",
-        image: "/how-often.webp",
+        image: "/images/how-often.webp",
     },
     {
         question: "My installer went bust — can you help?",
         answer: "Yes. We support most solar brands and systems and can onboard you during your maintenance visit (MOT).",
-        image: "/bust.webp",
+        image: "/images/bust.webp",
     },
     {
         question: "Do you need scaffolding for cleaning or inspections?",
         answer: "Usually no. We use long-reach tools and safe-access methods to avoid scaffolding in most cases.",
-        image: "/scaffold.webp",
+        image: "/images/scaffold.webp",
     },
     {
         question: "Will cleaning scratch my panels?",
         answer: "No. We avoid pressure washers and only use PV-safe brushes designed to protect the glass surface.",
-        image: "/scratch.webp",
+        image: "/images/scratch.webp",
     },
     {
         question: "What happens if you find a fault?",
         answer: "We provide photos and repair options. Plus members receive priority support, and Premium includes emergency call-outs.",
-        image: "/fault.webp",
+        image: "/images/fault.webp",
     },
     {
         question: "What are the typical repair costs?",
         answer: "Call-out charges are £100–£150. Minor repairs range £150–£300. Inverter replacements typically cost £800–£1,200.",
-        image: "/cost.webp",
+        image: "/images/cost.webp",
     },
     {
         question: "Do you handle solar batteries or EV chargers?",
         answer: "Yes. You can request bundle pricing for batteries and EV charging systems.",
-        image: "/ev-charger.webp",
+        image: "/images/ev-charger.webp",
     },
     {
         question: "What do I receive after a maintenance visit?",
         answer: "You get photos, a plain-English inspection summary, and an updated maintenance log.",
-        image: "/maintenance.webp",
+        image: "/images/maintenance.webp",
     },
 ];
 
@@ -56,22 +56,13 @@ const FAQs = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
-        // <section
-        //     id="faqs"
-        //     className="px-2 md:px- py-24 text-center"
-        // >
         <section id="faqs" className="mx-auto max-w-7xl px-2 py-10 md:px-12">
-            {/* Section Header */}
             <div className="text-center">
-                {/* <p className="font-inter text-brand-slate text-sm mb-2 uppercase tracking-wide">
-                    Trusted By
-                </p> */}
                 <h2 className="font-raleway text-brand-deep-navy mb-12 text-3xl leading-tight font-semibold md:text-5xl">
                     Any Questions. We Got You.
                 </h2>
             </div>
 
-            {/* FAQ List */}
             <div className="md:mx- flex flex-col gap-3 md:flex-row">
                 <div className="space-y-1 text-left md:w-3xl">
                     {faqs.map((faq, index) => {
@@ -111,12 +102,19 @@ const FAQs = () => {
                                         isOpen ? "mt-3 max-h-96" : "max-h-0"
                                     }`}
                                 >
-                                    <div className="relative bg-brand-lime pointer-events-none h-50 md:w-1/2 overflow-hidden rounded-md">
+                                    <div className="relative pointer-events-none h-50 md:w-1/2 overflow-hidden rounded-md">
                                         <Image
                                             src={faq.image}
                                             fill
                                             className="object-center"
                                             alt=""
+                                        />
+                                        <img
+                                            src={faq.image}
+                                            alt={`Frequently Asked Question - ${index}`}
+                                            className="absolute inset-0 h-full w-full object-cover"
+                                            loading="lazy"
+                                            decoding="async"
                                         />
                                     </div>
                                     <p className="font-inter text-brand-navy/80 md:w-1/2 text-sm leading-5 md:text-base">

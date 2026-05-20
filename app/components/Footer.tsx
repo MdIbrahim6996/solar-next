@@ -15,7 +15,7 @@ const Footer = () => {
                 <div className="md:w-[40%]">
                     <div className="overflow-hidden rounded-md bg-slate-100 p-3">
                         <img
-                            src="/solarcare-logo.svg"
+                            src="/images/solarcare-logo.svg"
                             alt=""
                             className="h-full w-full object-cover"
                         />
@@ -122,21 +122,21 @@ const Footer = () => {
                         <div className="grid grid-cols-3 gap-1">
                             <div className="rounded-md bg-white p-1">
                                 <img
-                                    src="/mastercard_logo.png"
+                                    src="/images/mastercard_logo.png"
                                     className="h-full w-full object-cover"
                                     alt=""
                                 />
                             </div>
                             <div className="rounded-md bg-white">
                                 <img
-                                    src="/visa_logo.png"
+                                    src="/images/visa_logo.png"
                                     className="h-full w-full object-cover"
                                     alt=""
                                 />
                             </div>
                             <div className="flex w-full items-center rounded-md bg-white">
                                 <img
-                                    src="/direct_debit.png"
+                                    src="/images/direct_debit.png"
                                     className="object-cover"
                                     alt=""
                                 />
@@ -144,7 +144,7 @@ const Footer = () => {
                         </div>
                         <div className="mt-2 rounded-md bg-white p-2">
                             <img
-                                src="/checkatrade.png"
+                                src="/images/checkatrade.png"
                                 className="h-full w-full object-cover"
                                 alt=""
                             />

@@ -14,7 +14,6 @@ import { MdMoveUp } from "react-icons/md";
 import { LuMonitorCog } from "react-icons/lu";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import dynamic from "next/dynamic";
-import Image from "next/image";
 import Link from "next/link";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -124,18 +123,14 @@ const Features = () => {
     return (
         <section
             id="services"
-            className="install relative mt-1.5 min-h-screen overflow-hidden bg-emerald-900 md:mx-2 md:rounded-md"
+            className="install relative mt-1.5 min-h-screen overflow-hidden md:mx-2 md:rounded-md"
         >
-            <Image
-                src="/panel-install.jpg"
+            <img
+                src="/images/feature.webp"
                 alt="Solar maintenance services"
-                fill
-                fetchPriority="high"
-                sizes="(max-width: 480px) 100vw,
-                                   (max-width: 768px) 100vw,
-                                   (max-width: 1200px) 1200px,
-                                   1200px"
-                className="object-cover"
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
             />
             <div className="absolute inset-0 bg-black/50" />
 

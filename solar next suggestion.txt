@@ -1,0 +1,171 @@
+✔️1) Header & HERO (above the fold):
+
+H1 (single, fixed):
+Solar Maintenance for Homeowners in {{City}}
+Subhead (one line):
+More output. Fewer surprises. Nationwide cover  even if your installer isn’t around.
+(Add this short line beneath the subhead: “Start with a Solar MOT (£250)  clean + 25-point health check, report & certificate.”)
+Primary CTA (button): Book Solar MOT (£250)
+Secondary CTA (link): View Plans
+Trust strip (single line, under CTAs):
+Local technicians • Nationwide cover • 24/7 emergency assistance • Fully insured • Working-at-Height trained • MCS-aligned methods
+Implementation
+Logo + simple nav only in the header.
+Hero: one static image that supports readability of the copy. Do not rotate, animate or change.
+
+
+
+
+✔️2) Savings & ROI (calculator + tiles)
+H2: Solar Maintenance Savings & ROI Calculator
+Lead (one line): Slide to your system size — see extra energy and £ your clean, tuned system can unlock.
+Embed the existing savings slider widget exactly as supplied.
+Under/alongside the calculator (desktop side-by-side, mobile stacked) add 4 concise ROI tiles:
+Energy Output Recovery: 15–30%
+Annual Savings: £200–£380
+Panel Lifespan: 25+ years
+Unexpected Repairs: Avoid £££ bills
+One bullet line under the tiles: Why it matters: more output • fewer surprises • safety checks • warranty-friendly records
+Implementation
+Calculator CTA scrolls to the final form and prefills hidden fields: kw, baseline_kwh, uplift_pct, saving_est.
+Events: savings_widget_change, savings_widget_cta.
+
+
+✔️3) What is a Solar MOT? (the paid entry point)
+H2: Start with a Solar MOT (£250)
+Bullets (single line each):
+Deep clean + 25-point health check -> deep -> <SiDeepin />
+Performance report + Solar MOT certificate
+If installed by someone else — we onboard and take over
+After MOT, choose a plan and move to monthly maintenance
+Note (one line): Pay £250 online for the Solar MOT (card). Your plan then bills monthly by direct debit.
+Implementation
+Button: Book Solar MOT (£250) → checkout link.
+Optional compact modal: “View 25-point checklist” (list only, no long text).
+
+
+4) How it works (MOT → monthly care)
+H2: How Your Solar Maintenance Starts
+Three step tiles (one line each):
+Book & Pay Solar MOT (£250)
+Report & Certificate
+Pick a Plan (monthly care starts)
+Implementation
+Keep it to 3 tiles with simple icons; no paragraphs.
+
+
+✔️5) Plans — Standard / Plus / Premium
+H2: Solar Maintenance Plans — Standard / Plus / Premium
+Sub: Monthly / Quarterly / Annual options. Final pricing confirmed after your MOT report.
+Plan cards (bullets only, keep tight):
+STANDARD (newer systems) — £X/mo (or £X/yr)
+1× visit/yr (clean + visual)
+Light electrical checks
+Basic output report
+Monthly desk review
+Standard support
+CTA: Get Started
+
+PLUS (most popular) — £Y/mo
+4× visits/yr (clean + inspection)
+Full electrical safety test (annual)
+24/7 monitoring + weekly summaries
+Priority call-outs
+Full photo report
+CTA: Get Started
+
+PREMIUM (zero hassle) — £Z/mo
+Quarterly + on-demand visits (incl. post-storm)
+Full electrical testing each visit
+24/7 monitoring + real-time alerts
+24/7 emergency assistance included
+Best pricing on add-ons
+CTA: Get Started
+Footnote (one line): Travel/roof access within {{Region}} included; specialist access quoted. Every visit includes a photo report and maintenance record.
+Implementation
+Add a Monthly/Annual price toggle (JS only; values can be placeholders).
+Plan CTA opens the final form with plan preselected.
+
+
+6) Why us (local + nationwide + takeover)
+H2: Solar Maintenance, Local Everywhere — With Nationwide Backup
+Bullets (one line each):
+Installer went bust? We take over any system
+Local technicians in {{City}}, backed by nationwide cover
+24/7 emergency assistance on Plus/Premium
+Soft-brush, purified water — no pressure washers
+Photo reports & maintenance records (warranty-friendly)
+
+
+✔️7) Results you can see (keep the before/after slider)
+H2: Results You Can See
+Keep the single before/after slider that demonstrates maintenance impact (cleaning/optimisation).
+CTA under slider: Book Solar MOT (£250)
+Implementation
+One slider is enough. No carousels.
+
+
+✔️8) Trusted by brands + reviews
+H2: Trusted by Brands
+Short logo strip (grayscale).
+H2: What Homeowners Say
+Rating line: 4.8/5 ({{ReviewCount}}+ verified reviews)
+One-line quotes only (3–5 items), e.g.:
+“Bill dropped after the Solar MOT — upgraded to Plus.”
+“Installer vanished; they took over and fixed two faults fast.”
+“Clear photos, clear report, extra kWh we can see.”
+CTA: Book Solar MOT (£250)
+
+
+✔️9) FAQs (accordion; concise)
+H2: Solar Maintenance FAQs
+Keep answers to one line each; use an accessible accordion.
+ - Doesn’t rain clean panels? Rain ≠ deep clean; PV-safe soft-brush + purified water.
+ - How often? Annual baseline; quarterly if pollen, trees, coastal or birds.
+ - Installer went bust? Yes — we support most brands; we’ll onboard you at the MOT.
+ - Scaffolding? Usually no; long-reach safe access.
+ - Scratches? No pressure washers; PV-safe brushes only.
+ - Found a fault? Photos + options; Plus priority; Premium includes emergencies.
+ - Typical repair costs? Call-out £100–£150; small repair £150–£300; inverter £800–£1,200.
+ - Batteries/EV? Yes, you can ask about bundle pricing.
+ - What do I get after a visit? Photos, plain-English findings, updated maintenance log.
+Implementation
+Track faq_open events with question id.
+
+
+✔️10) Final action (form)
+H2: Book Your Solar MOT (£250) in {{City}}
+Sub (one line): Clean + 25-point health check, report & certificate — then choose a monthly plan.
+Form fields: Name, Postcode, Email, Phone, Preferred date, Notes
+Switch: Was your system installed by a different company? (Yes/No → if Yes: optional installer name, year installed)
+Hidden fields: utm_source, utm_medium, utm_campaign, gclid, kw, baseline_kwh, uplift_pct, saving_est
+Primary CTA: Book Solar MOT (£250)
+Secondary link: Get Plan Quote (optional secondary path)
+Success state (short): Thanks — we’ll confirm your MOT slot and outline plan options.
+
+
+
+We need to implement and give the details for 
+Analytics & Smartlook
+GA4 (via GTM)
+Events to fire:
+lead_submit (form completed)
+plan_cta (plan id)
+savings_widget_change (kw, baseline_kwh, uplift_pct)
+savings_widget_cta (kw, saving_est)
+faq_open (question id)
+Smartlook (we will provide the project key)
+Add Smartlook via GTM or directly in <head>.
+Consent-aware: mask keystrokes/PII; mask card fields; respect GDPR consent.
+Heatmaps for the landing page; Funnels: Hero → Calculator → Plan CTA → Form Submit → MOT checkout.
+Tag key interactions: ROI_tile_view, before_after_interact, plan_card_hover, mot_checkout_start, mot_checkout_success.
+Sample at 100% for first 30 days post-launch, then adjust.
+Technical & SEO
+SEO
+Meta title: Solar Maintenance in {{City}} | Solar MOT (£250) & Monthly Plans
+Meta description: Premium solar maintenance for homeowners in {{City}}. Start with a Solar MOT (£250): clean + 25-point check, report & certificate. Then choose a monthly plan. Book today.
+URL: /solar-maintenance-{{city}}
+Use “solar maintenance” in the H1 and several H2s. Avoid stuffing in body copy.
+.
+MENU on the top of the page
+Menu: Home • Services • Plans • Contact

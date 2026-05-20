@@ -70,11 +70,12 @@ const Pricing = () => {
     return (
         <section id="plans" className="my-2 px-2 md:px-2">
             <div className="relative md:h-220 h-520 overflow-hidden rounded-md">
-                <Image
-                    src="/hero-desktop.webp"
+                <img
+                    src="/images/hero-desktop.webp"
                     alt="Solar maintenance services"
-                    fill
-                    className="object-cover"
+                    className="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                 />
                 <div className="absolute inset-0 bg-black/60"></div>
                 <div className="absolute inset-0 h-full w-full p-5 py-10">

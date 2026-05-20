@@ -3,7 +3,6 @@ import { Metadata } from "next";
 import Hero from "../components/Hero";
 import Features from "../components/Features";
 
-import { getUserCity } from "../utils/getUserCity";
 
 const Pricing = dynamic(() => import("../components/Pricing"), {
     loading: () => null,
@@ -42,12 +41,10 @@ export const metadata: Metadata = {
         "Premium solar panel maintenance for UK homeowners. Our certified Solar MOT includes cleaning, a 25-point system check, performance report, and ongoing service plans.",
 };
 
-//https://docs.google.com/spreadsheets/d/1YadN92M4LT2Q6xWzLA-AYJ-FNY3AtBS4z-Fv7wtwH8Q/edit?usp=sharing
-const city = await getUserCity();
 const Home = () => {
     return (
         <>
-            <Hero initialCity={city} />
+            <Hero />
             <Features />
             <Pricing />
             <Benefits />
@@ -57,7 +54,7 @@ const Home = () => {
             <About />
             <Testimonial />
             <FAQs />
-            <Contact initialCity={city} />
+            <Contact />
         </>
     );
 };

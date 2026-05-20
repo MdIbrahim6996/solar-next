@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useUserCity } from "../hooks/useUserCity";
@@ -15,24 +14,19 @@ const services = [
     "Fully Insured",
 ];
 
-const Hero = ({ initialCity }: { initialCity: string }) => {
-    // const city = initialCity;
-    const { city } = useUserCity(initialCity);
+const Hero = () => {
+    const { city } = useUserCity("UK");
     return (
         <section
             id="home"
             className="relative flex h-screen flex-col justify-end overflow-hidden px-4 pb-20 md:m-1.5 md:rounded-lg md:px-10 md:pb-10"
         >
-            <Image
-                src="/hero-desktop.webp"
+            <img
+                src="/images/hero-desktop.webp"
                 alt="Solar maintenance services"
-                fill
-                fetchPriority="high"
-                sizes="(max-width: 480px) 100vw,
-                       (max-width: 768px) 100vw,
-                       (max-width: 1200px) 1200px,
-                       1200px"
-                className="object-cover"
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="eager"
+                decoding="async"
             />
             {/* Overlay for better contrast */}
             <div className="absolute inset-0 hidden bg-linear-to-b from-black/15 via-black/45 via-55% to-black/90 md:block" />

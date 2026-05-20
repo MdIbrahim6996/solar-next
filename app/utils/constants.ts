@@ -1,5 +1,6 @@
 export const BRAND_NAME = "No.1 Solar Care";
-
+export const SHEETS_LINK =
+    "https://script.google.com/macros/s/AKfycbxVIYz53njIhitpo3uVECGhKrLKchz828FXTGylsk22EGjLMvHBQj37BpZG12YMb1iI/exec";
 export const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -38,3 +39,5 @@ export const openGmail = (plan: string = "Standard") => {
 
     window.open(url, "_blank"); // opens Gmail compose
 };
+
+//"https://script.google.com/macros/s/AKfycbzgHTkySRwRmij4hXZw1p5H5XaC4Sb9_wcjLj-ut2GapIVp0avMAYwVoB4HhE9GHD7O/exec";

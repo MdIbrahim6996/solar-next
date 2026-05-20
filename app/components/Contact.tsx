@@ -3,8 +3,9 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useMemo, useState } from "react";
 import { useUserCity } from "../hooks/useUserCity";
+import { SHEETS_LINK } from "../utils/constants";
 
-const Contact = ({ initialCity }: { initialCity: string }) => {
+const Contact = () => {
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
     const [postcode, setPostcode] = useState("");
@@ -16,7 +17,7 @@ const Contact = ({ initialCity }: { initialCity: string }) => {
     const [notes, setNotes] = useState("");
     const [loading, setLoading] = useState(false);
 
-    const { city } = useUserCity(initialCity);
+    const { city } = useUserCity("UK");
 
     const today = useMemo(() => {
         const now = new Date();
@@ -46,19 +47,24 @@ const Contact = ({ initialCity }: { initialCity: string }) => {
             installerName: previouslyInstalled ? installerName : "",
             installYear: previouslyInstalled ? installYear : "",
             notes,
-            city, // already in your component
+            city,
             company: "", // honeypot (spam protection)
             subject,
         };
 
-        const res = await fetch("/api/contact", {
+        // const res = await fetch("/api/contact", {
+        //     method: "POST",
+        //     headers: { "Content-Type": "application/json" },
+        //     body: JSON.stringify(payload),
+        // });
+
+        const res = await fetch(SHEETS_LINK, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
+            body: new URLSearchParams(payload as any),
         });
 
         setLoading(false);
-        console.log("Form submitted with payload:", payload);
+        console.log("Form submitted");
 
         if (res.ok) {
             alert(`${formattedSubject} sent successfully!`);

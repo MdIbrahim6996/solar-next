@@ -55,28 +55,31 @@ const About = () => {
 
             <div className="w-screen md:w-1/2 md:hidden">
                 <div className="relative h-100 rounded-md overflow-hidden mx-5">
-                    <Image
-                        fill
-                        src="/hero-prod.png"
+                    <img
+                        src="/images/hero-prod.webp"
                         alt="Solar Panel"
-                        className="object-cover"
+                        className="h-full w-full object-cover"
+                        loading="lazy"
+                        decoding="async"
                     />
                 </div>
                 <div className="flex mx-5 gap-2 mt-2">
                     <div className="relative w-1/2 h-80 rounded-md overflow-hidden">
-                        <Image
-                            fill
-                            src="/about1.jpeg"
+                        <img
+                            src="/images/about1.jpeg"
                             alt="Solar Panel"
-                            className="object-cover"
+                            className="h-full w-full object-cover"
+                            loading="lazy"
+                            decoding="async"
                         />
                     </div>
                     <div className="relative w-1/2 h-80 rounded-md overflow-hidden">
-                        <Image
-                            fill
-                            src="/about2.jpeg"
+                        <img
+                            src="/images/about2.jpeg"
                             alt="Solar Panel"
-                            className="object-cover"
+                            className="h-full w-full object-cover"
+                            loading="lazy"
+                            decoding="async"
                         />
                     </div>
                 </div>
@@ -84,33 +87,32 @@ const About = () => {
 
             <div className="hidden md:grid h-full grid-cols-2 gap-2 md:h-180 md:w-[60%]">
                 <div className="relative col-span-2 row-span-2 h-140 overflow-hidden rounded-xl md:col-span-1 md:h-full">
-                    <Image
-                        src="/hero-prod.png"
+                    <img
+                        src="/images/hero-prod.webp"
                         alt="Solar panels on home roof"
-                        fill
-                        sizes="(max-width: 768px) 100vw, 60vw"
-                        className="object-cover"
-                        priority
+                        className="h-full w-full object-cover"
+                        loading="lazy"
+                        decoding="async"
                     />
                 </div>
 
                 <div className="relative h-70 overflow-hidden rounded-xl md:h-full">
-                    <Image
-                        src="/about1.jpeg"
+                    <img
+                        src="/images/about1.jpeg"
                         alt="Solar technician installing panels"
-                        fill
-                        sizes="(max-width: 768px) 50vw, 30vw"
-                        className="object-cover"
+                        className="h-full w-full object-cover"
+                        loading="lazy"
+                        decoding="async"
                     />
                 </div>
 
                 <div className="relative h-70 overflow-hidden rounded-xl md:h-full">
-                    <Image
-                        src="/about2.jpeg"
+                    <img
+                        src="/images/about2.jpeg"
                         alt="Modern solar setup on building"
-                        fill
-                        sizes="(max-width: 768px) 50vw, 30vw"
-                        className="object-cover scale-110"
+                        className="h-full w-full object-cover"
+                        loading="lazy"
+                        decoding="async"
                     />
                 </div>
             </div>
